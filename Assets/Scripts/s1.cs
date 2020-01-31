@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class s1 : MonoBehaviour {
 
-    private float engSpeed;
     private float cool;
     private float sonCool;
 
     public float vel;
     public float speed;
-    public float maxSpeed;
     public float maxVel;
     public float drag;
     public float turnSpeed;
@@ -29,19 +27,10 @@ public class s1 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.W) && engSpeed + speed <= maxSpeed)
+		if (Input.GetKey(KeyCode.W))
         {
-            engSpeed += speed;
-        } else if (Input.GetKeyDown(KeyCode.S) && engSpeed - speed >= -maxSpeed)
-        {
-            engSpeed -= speed;
-        } else if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            engSpeed = 0;
-        }
-
-        vel += engSpeed;
-        if (engSpeed == 0)
+            vel += speed;
+        } else
         {
             vel -= drag;
         }
@@ -49,8 +38,7 @@ public class s1 : MonoBehaviour {
         if (vel < 0)
         {
             vel = 0;
-        }
-        if (vel > maxVel)
+        } else if (vel > maxVel)
         {
             vel = maxVel;
         }
@@ -85,7 +73,7 @@ public class s1 : MonoBehaviour {
             Object.Instantiate(torpedo, this.transform.position, this.transform.rotation);
             cool = fireCooldown;
         }
-        if (Input.GetKeyDown(KeyCode.E) && sonCool == 0)
+        if (Input.GetKeyDown(KeyCode.S) && sonCool == 0)
         {
             Object.Instantiate(sonar, this.transform.position, this.transform.rotation);
             sonCool = sonarCooldown;
