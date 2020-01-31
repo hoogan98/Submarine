@@ -17,15 +17,14 @@ public class s1 : MonoBehaviour {
 
     public Transform torpedo;
     public Transform sonar;
+    public GameObject lossText;
 
-	// Use this for initialization
 	void Start () {
         vel = 0;
         cool = fireCooldown;
         sonCool = sonarCooldown;
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey(KeyCode.W))
         {
@@ -94,13 +93,15 @@ public class s1 : MonoBehaviour {
     {
         if (collision.CompareTag("Obstacle") || collision.CompareTag("Debris"))
         {
-            Destroy(this.gameObject);
+            Die();
         }
     }
 
-    private void Die()
+    public void Die()
     {
+        Instantiate(lossText);
 
+        Destroy(this.gameObject);
     }
 
 }

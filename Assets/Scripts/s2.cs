@@ -16,6 +16,7 @@ public class s2 : MonoBehaviour {
 
     public Transform torpedo;
     public Transform sonar;
+    public GameObject lossText;
 
     // Use this for initialization
     void Start()
@@ -97,7 +98,14 @@ public class s2 : MonoBehaviour {
     {
         if (collision.CompareTag("Obstacle") || collision.CompareTag("Debris"))
         {
-            GameObject.Destroy(this.gameObject);
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        Instantiate(lossText);
+
+        Destroy(this.gameObject);
     }
 }

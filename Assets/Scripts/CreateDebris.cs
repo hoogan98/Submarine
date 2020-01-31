@@ -24,10 +24,10 @@ public class CreateDebris : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         debNum = Random.Range(0, debMax);
-        Debug.Log(debNum);
+        //Debug.Log(debNum);
         debCount = debNum;
         clumpCount = (int) Random.Range(0, debNum / Random.Range(1, clumpScaleMax));
-        Debug.Log(clumpCount);
+        //Debug.Log(clumpCount);
         siz = this.gameObject.GetComponent<SpriteRenderer>().bounds.size;
         debSize = debris.gameObject.GetComponent<SpriteRenderer>().bounds.size;
         lmax = -siz.x / 2;
@@ -74,10 +74,5 @@ public class CreateDebris : MonoBehaviour {
 
             GameObject.Instantiate(debris, new Vector3(x, y, 0), this.transform.rotation);
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }
