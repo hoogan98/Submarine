@@ -1,2 +1,2 @@
 # Submarine
-Submarine thing that needs to be finished
+Submarine unity project that needs to be finished
